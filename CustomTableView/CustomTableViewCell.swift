@@ -41,8 +41,8 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     
-    func setUpCell(image: Data, title: String, paragraph: String){
-        customImage.image = UIImage()
+    func setUpCell(image: UIImage, title: String, paragraph: String){
+        customImage.image = image
         customTitle.text = title
         customParagraph.text = paragraph
     }

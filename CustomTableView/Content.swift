@@ -9,7 +9,7 @@ import UIKit
 
 
 struct Content{
-    var image: Data
+    var image: UIImage
     var title: String
     var paragraph: String
 }
