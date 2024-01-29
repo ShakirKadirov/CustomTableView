@@ -9,10 +9,13 @@ import UIKit
 
 class HomePageController: UIViewController {
     
-    let tableData: [Content] = []
+    let tableData: [TableData] = [
+        TableData(image: .iphoneImg, title: .iphone, paragraph: <#T##String#>)
+    ]
     
     lazy var tableView: UITableView = {
         $0.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.reuseID)
+        $0.delegate = self
         $0.dataSource = self
         $0.backgroundColor = .systemBlue
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -38,14 +41,17 @@ class HomePageController: UIViewController {
 }
 
 
-extension HomePageController: UITableViewDataSource{
+extension HomePageController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableData.count
     }
     
+
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.reuseID, for: indexPath) as! CustomTableViewCell
-        return cell
-    }
+            let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.reuseID, for: indexPath) as! CustomTableViewCell
+            let image = tableData[indexPath.row].image
+            return cell
+        }
 }

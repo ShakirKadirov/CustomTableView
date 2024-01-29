@@ -11,6 +11,8 @@ class MoreInfoPageController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Home Page"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 }
